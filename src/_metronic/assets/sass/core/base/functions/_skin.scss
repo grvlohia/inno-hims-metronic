@@ -1,0 +1,27 @@
+//
+// Get skin
+//
+
+@function getSkin() {
+  @if (variable-exists(skin)) {
+    @return $skin;
+  } @else {
+    @return default;
+  }
+}
+
+@function isDarkSkin() {
+  @if (getSkin() == dark) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function isDefaultSkin() {
+  @if (getSkin() == default) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
