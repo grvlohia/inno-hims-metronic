@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import { TextInput } from '../../../../uikit'
+import { Label } from '../../../../uikit/components/Label/Label'
 
 interface Props {
   name: string
@@ -33,27 +33,23 @@ const TextInputWithLabel = (props: Props) => {
     size,
     background
   } = props
+
+  const id = `${name}TextInput`
   return (
     <div className='form-group'>
-      {label && (
-        <label
-          className={clsx('form-label fw-bolder text-dark fs-6 mb-0', isRequired && 'required')}
-        >
-          {label}
-        </label>
-      )}
+      {label && <Label text={label} htmlFor={id} isRequired={isRequired} />}
       <TextInput
-        name={name}
+        id={id}
         type={type}
         value={value}
         disabled={!isEditable}
         placeholder={placeholder}
         onChange={onChange}
+        size={size}
+        background={background}
         isValid={isValid}
         isInvalid={isInvalid}
         feedback={feedback}
-        size={size}
-        background={background}
       />
     </div>
   )
