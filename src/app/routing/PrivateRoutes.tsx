@@ -2,6 +2,7 @@ import React, {Suspense, lazy} from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {FallbackView} from '../../_metronic/partials'
 import PatientRoutes from '../modules/patient/PatientRoutes'
+import Pharmacy from '../modules/pharmacy/Pharmacy'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {MenuTestPage} from '../pages/MenuTestPage'
 
@@ -25,6 +26,7 @@ export function PrivateRoutes() {
         <Route path='/apps/chat' component={ChatPage} />
         <Route path='/menu-test' component={MenuTestPage} />
         <Route path='/patient' component={PatientRoutes} />
+        <Route path='/pharmacy' component={Pharmacy} />
         <Redirect from='/auth' to='/dashboard' />
         <Redirect exact from='/' to='/dashboard' />
         <Redirect to='error/404' />

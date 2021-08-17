@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
-import {useIntl} from 'react-intl'
-import {KTSVG} from '../../../helpers'
-import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
-import {AsideMenuItem} from './AsideMenuItem'
+import { useIntl } from 'react-intl'
+import { KTSVG } from '../../../helpers'
+import { AsideMenuItemWithSub } from './AsideMenuItemWithSub'
+import { AsideMenuItem } from './AsideMenuItem'
 
 export function AsideMenuMain() {
   const intl = useIntl()
@@ -13,7 +13,7 @@ export function AsideMenuMain() {
       <AsideMenuItem
         to='/dashboard'
         icon='/media/icons/duotone/Design/PenAndRuller.svg'
-        title={intl.formatMessage({id: 'MENU.DASHBOARD'})}
+        title={intl.formatMessage({ id: 'MENU.DASHBOARD' })}
         fontIcon='bi-app-indicator'
       />
       <AsideMenuItem
@@ -22,11 +22,38 @@ export function AsideMenuMain() {
         title='Layout Builder'
         fontIcon='bi-layers'
       />
-      <AsideMenuItem 
+      <AsideMenuItem
         to='/patient'
         icon='/media/icons/duotone/Communication/Group.svg'
         title='Patient'
       />
+      <div className='menu-item'>
+        <div className='menu-content pt-8 pb-2'>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Pharmacy</span>
+        </div>
+      </div>
+      <AsideMenuItemWithSub
+        to='/pharmacy'
+        title='Inventory'
+        fontIcon='bi-archive'
+        icon='/media/icons/duotone/Communication/Group.svg'
+      >
+        <AsideMenuItem to='/pharmacy/view' title='View All' hasBullet={true} />
+        <AsideMenuItem to='/pharmacy/new' title='Create New' hasBullet={true} />
+
+      </AsideMenuItemWithSub>
+      <AsideMenuItem
+        to='/pharmacy/pos'
+        icon='/media/icons/duotone/Design/PenAndRuller.svg'
+        title='POS'
+      />
+      <AsideMenuItem
+        to='/pharmacy/sales'
+        icon='/media/icons/duotone/Design/PenAndRuller.svg'
+        title='Sales'
+      />
+
+
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
