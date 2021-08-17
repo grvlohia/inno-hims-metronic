@@ -1,13 +1,21 @@
 import React, { ReactNode } from 'react'
+import { Button, ButtonProps } from '../Button'
 
 interface Props {
+    /** Defines the body of the modal. */
     title?: string
+    /** Defines the body of the modal. */
     body?: ReactNode
+    /** Define the name of button in which click modal open */
     buttonName?: string
+    /**
+      * Optional success button properties.
+      * */
+    successButton?: ButtonProps
 }
 
 const Modal = (props: Props) => {
-    const { title, body, buttonName } = props
+    const { title, body, buttonName, successButton } = props
     return (
         <>
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_1">
@@ -30,7 +38,11 @@ const Modal = (props: Props) => {
 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            {successButton && (
+                                <Button {...successButton} color={successButton.color || 'primary'}>
+                                    {successButton.children || 'Confirm'}
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>

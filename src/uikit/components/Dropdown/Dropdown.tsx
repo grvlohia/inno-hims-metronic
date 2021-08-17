@@ -1,6 +1,5 @@
 import React from 'react'
 import { ButtonVariant } from '../../interfaces'
-import { Item } from './interfaces'
 
 interface Props {
     text: string
@@ -29,7 +28,7 @@ const Dropdown = (props: Props) => {
                 {items.map((item, i) => {
                     return (
                         <div key={i} className="menu-item px-3">
-                            <a href="#" className="menu-link px-3">
+                            <a href="/" className="menu-link px-3">
                                 {item}
                             </a>
                         </div>

@@ -1,44 +1,4 @@
-// import React from 'react'
-// import flatpickr from "flatpickr";
-// import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect"
 
-
-
-// interface Props{
-//     label: string,
-//     locale?: string
-// }
-
-
-
-// const DateTimePicker = (props: Props) => {
-//     const { label } = props
-//     // var $: any;
-    
-//     const onChange = () => {
-//         flatpickr("#kt_datepicker_3",{
-//             plugins: [
-//                monthSelectPlugin({
-//                   shorthand: true, //defaults to false
-//                   dateFormat: "m.y", //defaults to "F Y"
-//                   altFormat: "F Y", //defaults to "F Y"
-//                   theme: "dark" // defaults to "light"
-//                 })
-//             ]
-//         })
-//     }
-
-//     return (
-//         <div className="mb-0">
-//             <label htmlFor="" className="form-label">{label}</label>
-//             <input className="form-control form-control-solid" placeholder="Pick date & time" id="kt_datepicker_3" 
-//             onChange = {onChange}
-//             />
-//         </div>
-//     )
-// }
-
-// export default DateTimePicker
 
 import * as locales from 'date-fns/locale'
 import React, { ReactNode, CSSProperties } from 'react'
@@ -136,7 +96,6 @@ interface Props {
 const DateTimePicker = (props: Props) => {
   const {
     children,
-    className,
     calendarClassName,
     dateFormat,
     dateFormatCalendar,
@@ -160,7 +119,6 @@ const DateTimePicker = (props: Props) => {
     showTimeSelect,
     showYearDropdown,
     showTimeSelectOnly,
-    style,
     timeFormat,
     timeIntervals,
     timeCaption,
@@ -175,12 +133,6 @@ const DateTimePicker = (props: Props) => {
 
   return (
     <>
-      {/* <input className="form-control form-control-solid" style={Object.assign({}, style, ...[inputDefaultStyle])}/> */}
-        {/* <InputGroup.Prepend>
-          <InputGroup.Text>
-            <Icon icon="calendar" />
-          </InputGroup.Text>
-        </InputGroup.Prepend> */}
         <DatePicker
           className={`form-control ${isValid ? 'is-valid' : isInvalid ? 'is-invalid' : ''}`}
           calendarClassName={calendarClassName}

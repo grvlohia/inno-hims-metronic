@@ -1,7 +1,6 @@
-import * as React from 'react'
 
 
-import { titleWithMessage, titleWithoutMessage } from './components'
+
 import { ToastProps } from './interfaces'
 import toastr from "toastr";
 // import '../../../_metronic/assets/sass//core/vendors/plugins/_toastr.scss'
@@ -15,7 +14,7 @@ export const Toast: any = (
   const messageToShow:any = message 
   //? titleWithMessage(title, message) : titleWithoutMessage(title)
   let toastToShow
-  const actualPosition = position 
+  //const actualPosition = position 
 
   switch (type) {
     case 'error':

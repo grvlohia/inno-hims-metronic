@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
 // import { Modal } from 'react-bootstrap-v5'
-import { Button, Label } from '../../../../uikit'
+import { Button, Table} from '../../../../uikit'
 import { DateTimePicker } from '../../../../uikit/components/DateTimePicker'
 import Dropdown from '../../../../uikit/components/Dropdown/Dropdown'
 import { Column, Container, Row } from '../../../../uikit/components/Layout'
 import Modal from '../../../../uikit/components/Modal/Modal'
 import { Toast } from '../../../../uikit/components/Toaster'
-import { Typeahead } from '../../../../uikit/components/Typeahead'
-import { Dropdown1 } from '../../../../_metronic/partials'
+import { TablesWidget1, TablesWidget10, TablesWidget11, TablesWidget12, TablesWidget13, TablesWidget2, TablesWidget3, TablesWidget4, TablesWidget5, TablesWidget6, TablesWidget7, TablesWidget8, TablesWidget9 } from '../../../../_metronic/partials/widgets'
 import InventorySearchInput from './InventorySearchInput'
 const Ditem = [
     'a',
     "b"
 ]
 const SeachInventory = () => {
-    const [show, setShow] = useState(false)
+    const [table, setTable] = useState([
+        {name:'adita',code:'213'},
+        {name:'aditya',code:'39910'}
+    ])
     const onDate = () => {
         console.log('date')
-        setShow(true)
         Toast('success', 'This is correct')
     }
     const body=(
@@ -29,17 +30,27 @@ const SeachInventory = () => {
                 <Row>
                     <Column>
                         <InventorySearchInput />
-                        <DateTimePicker
+                        <Table
+                            data={table}
+                            getID={row=>row.name}
+                            columns={[
+                                { label:"name", key: 'name' },
+                                { label: 'code', key: 'code' }
+                            ]}
+                            tableClassName='table align-middle gs-0 gy-4'
+                            headerClassName='fw-bolder text-muted bg-light'
+                        />
+                        <TablesWidget11 className='card-xxl-stretch mb-5 mb-xl-8'/>
+                        {/* <TablesWidget10 className='card-xxl-stretch mb-5 mb-xl-8' /> */}
+                        {/* <DateTimePicker
                             onChange={onDate}
                             showMonthYearPicker
                             dateFormat="MM/yyyy"
                         />
                         <Button onClick={onDate} 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#kt_modal_1"
                          >Check</Button>
 
-                        {/* <div>
+                        <div>
                                 <Label htmlFor="inventoryTypeahead" isRequired text='name' />
                                 <Typeahead
                                     id="inventoryTypeahead"
@@ -51,51 +62,20 @@ const SeachInventory = () => {
                                     renderMenuItemChildren={(p: any) => <div>{`${p.name}`}</div>}
                                    
                                 />
-                            </div> */}
+                            </div>
                         <Dropdown
                             text="name"
                             items={Ditem}
                         />
-                        {/* <Modal
-                            className='bg-white'
-                            id='kt_mega_menu_modal'
-                            aria-hidden='true'
-                            tabIndex='-1'
-                            dialogClassName='modal-fullscreen'
-                            contentClassName='shadow-none'
-                            show={show}    >
-                            <div className="modal fade"  >
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title">Modal title</h5>
-
-                                            <div className="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                                                <span className="svg-icon svg-icon-2x"></span>
-                                            </div>
-                                        </div>
-
-                                        <div className="modal-body">
-                                            <p>Modal body text goes here.</p>
-                                        </div>
-
-                                        <div className="modal-footer">
-                                            <button type="button" className="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" className="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </Modal> */}
                         <Modal
-                         //show= {show}
                          buttonName="Add Item"
                          title='Modal'
                          body={body}
-                        />
-
+                         successButton={{
+                             children:'Submit'
+                         }}
+                        /> */}
+                        
                     </Column>
                 </Row>
             </Container>

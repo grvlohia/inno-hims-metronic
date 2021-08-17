@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom"
 import { PageLink, PageTitle } from "../../../_metronic/layout/core";
+import { DashboardWrapper } from "../../pages/dashboard/DashboardWrapper";
 import ViewInventory from './inventory/ViewInventory'
 
 const pharmacyBreadcrumbs: Array<PageLink> = [
@@ -20,7 +21,11 @@ const pharmacyBreadcrumbs: Array<PageLink> = [
 const Pharmacy = () => {
     return (
         <Switch>
-            <Route path="/pharmacy">
+            <Route exact path="/pharmacy">
+                <PageTitle breadcrumbs={pharmacyBreadcrumbs}>Dashboard</PageTitle>
+                <DashboardWrapper />
+            </Route>
+            <Route path="/pharmacy/view">
                 <PageTitle breadcrumbs={pharmacyBreadcrumbs}>Dashboard</PageTitle>
                 <ViewInventory />
             </Route>
